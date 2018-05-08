@@ -49,8 +49,7 @@
 		    	<img src="resources/england_wales.png" alt="" style="background:none; border:none; box-shadow:none;">
 
 		    	<aside class="notes">
-		    		 
-		    		
+
 		    		<p>Now, why might we want to do this? One reason is for building a scalable product that can be used as an indicator of economic performance at a highly granular scale, the town centre boundary. This is particularly useful given the majority of economic performance indicators are undertaken at a regional geography - North-West, South-East etc - or for Local Authorities.</p>
 
 		    		<p>Having developed some brief intuition behind why we would do this, how does the literature define place attractiveness?</p>
@@ -146,6 +145,10 @@
 		 		</aside>
 		 	</section>
 
+		 	<section>
+		      <img src="resources/showinghierarchy.png" alt="" style="background:none; border:none; box-shadow:none;">
+		 	</section>
+
 		    <section>
 		    	<p><b>Spatial FE:</b></p>
 
@@ -167,11 +170,17 @@
 		    	$$\text{log }y_{ij} = \alpha_0 + X_i\beta_k + u_j + \epsilon_{ij} $$
 		    	<p></p>
 		    	$$r_{j} = \frac{1}{n} \sum_{i=1}^{n} y_{i' j} - \hat{y}_{i' j}. $$
-		    	<p></p>
+		    	<p>Multiplies raw residual for group $j$ with shrinkage factors.</p>
 		    	$$u_j = r_{j} \frac{\sigma_u^2}{\sigma_u^2 + \sigma_e^2 / n_j}.$$
 
 		    	<aside class="notes">
-		    		<p>A limitation of </p>
+		    		<p>A limitation of our spatial FE model is that it conflates unobservable influences that operate at the property-level and town centre boundary scale. If allowed, this leads to inefficient model estimation through heteroscedastic and/or spatially-correlated error in the covariance structure.</p>
+
+		    		<p>Multilevel models remedy this by treating the boundaries as part of the explanation for geographically varying outcomes. This allows two stores within the same town centre boundary to be more alike in their outcomes than would be expected given their individual characteristics alone.</p>
+
+		    		<p>Correlation within boundaries is expected because stores are assumed to be affected by the same aggregate effects, also known as group dependence.</p>
+
+		    		<p>MLM therefore makes use of two-level hierarchical structure (stores and TCBs) to explain variation in the business rate.</p>
 
 		    	</aside>
 
@@ -191,7 +200,11 @@
 		    	$$\theta_j = (I_j - \lambda M)^{-1}u_j$$
 
 		    	<aside class="notes">
-		    		Spatial process that dissipates with higher-order neighbours.
+		    		<p>Our present empirical design is limited by the adoption of a container-driven view of geographical space where everything stops at the boundaires of our town centres, treating any neighbourhood effect as independent from geographical context</p>
+
+		    		<p>As our correlation structure is bounded by the higher-level geography, this creates a discontinuity and contrasts with the reality that two nearby town centre boundaries might be similar, given close spatial proximity.</p>
+
+		    		<p>We use HSAR model that specifies a spatial process that dissipates with higher-order neighbours until covariance shrinks to zero.</p>
 
 		    	</aside>
 
@@ -205,7 +218,8 @@
 		    	<p>No inversion of the spatial filter, meaning spatial covariance is constrained to only first- and second-order neighbours.</p>
 
 		    	<aside class="notes">
-
+		    		<p>Our final model pays attention to LeSage and Pace's (2009) empirical question as to whether the spatial process under study is global or local.</p>
+		    		<p>Whereas our previous model used a global spatial covariance structure in that all boundaries are constructed to relate to all other boundaries, a local spatial process considers only first- and second-order neighbours, beyond which the spatial covariance is set to zero.</p>
 		    	</aside>
 
 		    </section>
