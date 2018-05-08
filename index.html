@@ -59,13 +59,14 @@
 
 		    </section>
 
-
 		    <section>
-		    	<p>How do we define <i>place attractiveness</i>?</p>
+		    	<p><b>How do we define <i>place attractiveness</i>?</b></p>
 
 		    	<ol>
 		    		<li class="fragment">Cultural infrastructure (Oner, 2017)?</li>
+		    		<p></p>
 		    		<li class="fragment">Public services and goods (Florida, 2000)?</li>
+		    		<p></p>
 		    		<li class="fragment">Consumer amenities (Glaser et al. 2001)?</li>
 		    	</ol>	
 
@@ -88,7 +89,11 @@
 
 		    		<p>Although quality of life has no natural unit per se, previous research has shown a large proportion of the variation in place attractiveness, as measured through the lens of the residiential housing market, can be explained by the provision of shops, goods and services.</p>
 
-		    		<p>In the urban economic literature, ...</p>
+		    		<p>In the urban economic literature, research has been motivated by the theoretical framework of spatial equilibrium; that the willingness to reside in a location can be explained by exploring housing prices and wage levels. More recently, however, cities and urban environments have demonstrated housing prices to increase faster than wage levels, implying a premium for particular locations (Oner, 2017; Glaeser et al. 2001).</p>
+
+		    		<p>In this way, a number of studies estimate the relevance of consumption opportunities to the attractiveness of places, with a focus on home-buyer decisions towards urban amenities.</p>
+
+		    		<p>Therefore, the spatial heterogeneity in the price paid for housing can be seen as a function of amenities such as climatic conditions, open park spaces, and the agglomerative forces of public and private services.</p>
 
 		    	</aside>
 
@@ -100,7 +105,8 @@
 		    	<p>How do we approach this?</p>
 
 		    	<aside class="notes">
-		    		<p>We begin by introducing the data source, the business rate. </p>
+		    		<p>These studies are typically motivated by the conceptual framework of hedonic regression towards residential housing, which is similar to what we do, but instead we explore place attractiveness through a lens of commercial property.</p>
+		    		<p>We begin by introducing the data source, the business rate.</p>
 		    	</aside>
 
 		    </section>
@@ -136,7 +142,7 @@
 		 		<p>How do we frame our methodological approach?</p>
 
 		 		<aside class="notes">
-
+		 			Essentially, the premise of our argument is that by taking the business rate and cleaning it of property-specific characteristics (such as the total floor area, the store type, the number of rooms, car parking spaces), we are left with 
 		 		</aside>
 		 	</section>
 
@@ -164,20 +170,30 @@
 		    	<p></p>
 		    	$$u_j = r_{j} \frac{\sigma_u^2}{\sigma_u^2 + \sigma_e^2 / n_j}.$$
 
+		    	<aside class="notes">
+
+
+		    	</aside>
+
 		    </section>
 
 		    <section>
-		    	<p><b>Spatial Hierarchical model(s):</b></p>
+		    	<p><b>Spatial Hierarchical model:</b></p>
 
-		    	$$\text{log }y_{ij}$$
+		    	$$\text{log }y_{ij} = \alpha_0 + X_i\beta_k + \theta_j + \epsilon_{ij} $$
 
 		    	<p></p>
 
 		    	$$\theta_j = \lambda M \theta_j + u_j$$
 
-		    	<p>Reduced form for 6 creates spatial covariance across system:</p>
+		    	<p>Reduced form of Equation (6) creates spatial covariance across system:</p>
 
 		    	$$\theta_j = (I_j - \lambda M)^{-1}u_j$$
+
+		    	<aside class="notes">
+		    		Spatial process that dissipates with higher-order neighbours.
+
+		    	</aside>
 
 		    </section>
 
@@ -185,6 +201,8 @@
 		    	<p><b>Spatial Moving Average (SMA) model:</b></p>
 
 		    	$$\theta_j = (I + \lambda M) u_j$$
+
+		    	<p>No inversion of the spatial filter, meaning spatial covariance is constrained to only first- and second-order neighbours.</p>
 
 		    	<aside class="notes">
 
@@ -199,15 +217,15 @@
 
 		    </section>
 
-		    <section>
+		    <section data-transition="zoom">
 		      <img src="resources/compare_methods.png" alt="" style="background:none; border:none; box-shadow:none;">
 		    </section>
 
-		    <section>
+		    <section data-transition="zoom">
 		      <img src="resources/lpool_resized.png" alt="" style="max-height: 700px; max-width: 700px; background:none; border:none; box-shadow:none;">
 		    </section>
 
-		    <section>
+		    <section data-transition="zoom">
 		      <img src="resources/shrinkage_plot.png" alt="" style="max-height: 700px; max-width: 700px; background:none; border:none; box-shadow:none;">
 		    </section>
 
@@ -215,8 +233,8 @@
 		    	<p><b>What next?</b></p>
 		    	<ol>
 		    		<li class="fragment">Learn to write log-likelihoods for each model to generate goodness-of-fit measures such as AIC and LL.</li>
-		    		<li class="fragment"></li>
-		    		<li class="fragment"></li>
+		    		<li class="fragment">Begin write-up.</li>
+		    		<li class="fragment">Present at conferences.</li>
 		    	</ol>
 		    </section>
 
