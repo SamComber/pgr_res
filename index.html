@@ -41,10 +41,157 @@
 		      <h4>Sam Comber</h4>
 		    </section>
 
-		    <section>
-		    	Glaeser says $$y=0_{ij} \theta$$
+		    <section data-transition="zoom">
+		    	
 
-		    	$a=x$
+		    	<p><b>Objective:</b> build a national indicator of town centre boundary attractiveness.</p>
+
+		    	<img src="resources/england_wales.png" alt="" style="background:none; border:none; box-shadow:none;">
+
+		    	<aside class="notes">
+		    		 
+		    		
+		    		<p>Now, why might we want to do this? One reason is for building a scalable product that can be used as an indicator of economic performance at a highly granular scale, the town centre boundary. This is particularly useful given the majority of economic performance indicators are undertaken at a regional geography - North-West, South-East etc - or for Local Authorities.</p>
+
+		    		<p>Having developed some brief intuition behind why we would do this, how does the literature define place attractiveness?</p>
+
+		    	</aside>
+
+		    </section>
+
+
+		    <section>
+		    	<p>How do we define <i>place attractiveness</i>?</p>
+
+		    	<ol>
+		    		<li class="fragment">Cultural infrastructure (Oner, 2017)?</li>
+		    		<li class="fragment">Public services and goods (Florida, 2000)?</li>
+		    		<li class="fragment">Consumer amenities (Glaser et al. 2001)?</li>
+		    	</ol>	
+
+		    	<aside class="notes">
+
+		    		<p>Well, according to Glaeser, the desirability of places to live are increasingly dependent on the ability of urban areas to provide lifestyle amenities.</p>
+
+		    		<p>Given our quality of lives continues to be enriched, there is a greater willingness of consumers to pay for receiving a location's bundle of wages and amenities, which is particularly reflected in house price growth when these locations offer attractiveness places for such people. </p>
+		    		
+		    		<p>Lifestyle amenities, such as restaurants, live performance venues and shopping districts are crucial for attracting the modern day worker, who balances economic and lifestyle opportunity in selecting places to live and work.</p>
+
+		    	</aside>
+		    </section>
+
+		    <section>
+
+		    	<p>How do previous studies approach this?</p>
+
+		    	<aside class="notes">
+
+		    		<p>Although quality of life has no natural unit per se, previous research has shown a large proportion of the variation in place attractiveness, as measured through the lens of the residiential housing market, can be explained by the provision of shops, goods and services.</p>
+
+		    		<p>In the urban economic literature, ...</p>
+
+		    	</aside>
+
+		    </section>
+
+
+		    <section>
+
+		    	<p>How do we approach this?</p>
+
+		    	<aside class="notes">
+		    		<p>We begin by introducing the data source, the business rate. </p>
+		    	</aside>
+
+		    </section>
+
+		    <section>
+
+		    	<p><b>Business rates</b>: a property-based tax levied on the estimated value of all non-residential properties such as shops, offices, warehouses and factories. </p>
+
+		    	<img src="resources/valuation-office-agency.jpg" alt="" style="background:none; border:none; box-shadow:none;">
+
+		    	<aside class="notes">
+		    		<p>The Valuation Office Agency (VOA) determine business rates by setting a rateable value for every UK non-domestic property.</p>
+		    		
+		    		<p>The VOA collects rent evidence alongside undertaking visual inspections of the premises. Therefore, VOA surveyors set rateable values to reflect features such as: the total floor area, business assets such as lifts, AC and CCTV security systems, but also changes in the local property market.</p>
+
+		    		<p>A valuation then begins by setting a common basic value per square metre for similar properties in the same area. This basic value is then adjusted to reflect the property's individual features. In this way, a valuation reflects property-level characteristics and, most importantly, the buoyancy of the local property market.</p>
+
+		    	</aside>
+
+		    </section>
+
+		 	<section>
+
+				<p>As business rates fluctuate with local economic market conditions, they reflect not only the size and scale of retail economies, but also the performance of the surrounding areas (Astbury and Thurstain-Goodwin, 2014).</p>
+
+				<aside class="notes">
+					<p>If, for example, high vacancy rates prevail along a high street area, rateable values can be expected to fall. Therefore, the VOA business rates data allows us to unlock a highly granular dataset that proxies both business performance and the attractiveness of the surrounding area to home-buyers.</p>
+				</aside>
+
+		 	</section>
+
+		 	<section>
+		 		<p>How do we frame our methodological approach?</p>
+
+		 		<aside class="notes">
+
+		 		</aside>
+		 	</section>
+
+		    <section>
+		    	<p><b>Spatial FE:</b></p>
+
+		    	$$\text{log }y_{ij} =  \sum_{j=1}^{j} \theta_{j}D_j + \beta_{k}x_{ij} + \epsilon_{ij}$$
+
+				<aside class="notes">
+					 
+					<p>We begin with our spatial FE model that is conceptually simple but involves many assumptions. One of these is to account for the variability in the response by grouping observations into discrete categories that reflect spatial structure.</p>
+
+					<p>In our baseline specification, each individual store within a given town centre boundary shares the same indicator variable, and for identification, the intercept is constrained to equal zero so that a separate neighbourhood effect can be estimated for each town centre boundary.</p>
+
+				</aside>
+
+		    </section>
+
+		    <section>
+		    	<p><b>Hierarchical model:</b></p>
+
+		    	$$\text{log }y_{ij} = \alpha_0 + X_i\beta_k + u_j + \epsilon_{ij} $$
+		    	<p></p>
+		    	$$r_{j} = \frac{1}{n} \sum_{i=1}^{n} y_{i' j} - \hat{y}_{i' j}. $$
+		    	<p></p>
+		    	$$u_j = r_{j} \frac{\sigma_u^2}{\sigma_u^2 + \sigma_e^2 / n_j}.$$
+
+		    </section>
+
+		    <section>
+		    	<p><b>Spatial Hierarchical model(s):</b></p>
+
+		    	$$\text{log }y_{ij}$$
+
+		    	<p></p>
+
+		    	$$\theta_j = \lambda M \theta_j + u_j$$
+
+		    	<p>Reduced form for 6 creates spatial covariance across system:</p>
+
+		    	$$\theta_j = (I_j - \lambda M)^{-1}u_j$$
+
+		    </section>
+
+		    <section>
+		    	<p><b>Spatial Moving Average (SMA) model:</b></p>
+
+		    	$$\theta_j = (I + \lambda M) u_j$$
+
+		    </section>
+
+		    <section>
+
+		    	<p>Findings</p>
+
 		    </section>
 
 		    <section>
@@ -52,11 +199,11 @@
 		    </section>
 
 		    <section>
-		      <img src="resources/lpool.png" alt="" style="background:none; border:none; box-shadow:none;">
+		      <img src="resources/lpool_resized.png" alt="" style="max-height: 700px; max-width: 700px; background:none; border:none; box-shadow:none;">
 		    </section>
 
 		    <section>
-		      <img src="resources/shrinkage_plot.png" alt="" style="background:none; border:none; box-shadow:none;">
+		      <img src="resources/shrinkage_plot.png" alt="" style="max-height: 700px; max-width: 700px; background:none; border:none; box-shadow:none;">
 		    </section>
 
 		  </div>
